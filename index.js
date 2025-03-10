@@ -12,13 +12,8 @@ const PORT = 8080;
 const certPath = path.join(__dirname, 'ssl', 'server.cert');
 const keyPath = path.join(__dirname, 'ssl', 'server.key');
 
-// Serve static files from the 'static' directory
-app.use(express.static(path.join(__dirname, 'static')));
-
-// Default route
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'static', 'index.html'));
-});
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Check if SSL certificate and key exist
 if (fs.existsSync(certPath) && fs.existsSync(keyPath)) {
