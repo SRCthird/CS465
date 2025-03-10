@@ -132,4 +132,6 @@ dist
 
 # ssl
 ssl/*
+
+# lock file
 package-lock.json
