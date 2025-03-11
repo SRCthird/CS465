@@ -1,25 +1,27 @@
+import 'dotenv/config';
+import process from 'node:process';
+
 import express from 'express';
 import https from 'node:https';
 import http from 'node:http';
 import fs from 'node:fs';
 
 // *** Constants *** //
-const app = express();
-const PORT = 8080;
+const PORT = process.env.PORT;
+const CERT = process.env.CERT;
+const KEY = process.env.KEY;
 
-// SSL files
-const certPath = 'ssl/server.cer';
-const keyPath = 'ssl/server.key';
+const app = express();
 
 // Serve static files from the 'public' directory
 app.use(express.static('public'));
 
 // Check if SSL certificate and key exist
-if (fs.existsSync(certPath) && fs.existsSync(keyPath)) {
+if (fs.existsSync(CERT) && fs.existsSync(KEY)) {
   // Create SSL Options object
   const sslOptions = {
-    key: fs.readFileSync(keyPath),
-    cert: fs.readFileSync(certPath),
+    cert: fs.readFileSync(CERT),
+    key: fs.readFileSync(KEY),
   };
 
   // Start HTTPS server
@@ -34,4 +36,3 @@ if (fs.existsSync(certPath) && fs.existsSync(keyPath)) {
     console.log(`HTTP Server running at http://localhost:${PORT}`);
   });
 }
-
