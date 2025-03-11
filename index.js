@@ -7,7 +7,7 @@ import http from 'node:http';
 import fs from 'node:fs';
 
 // *** Constants *** //
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8080; // Default port is 8080
 const CERT = process.env.CERT;
 const KEY = process.env.KEY;
 
