@@ -1,19 +1,18 @@
-const express = require('express');
-const https = require('https');
-const http = require('http');
-const fs = require('fs');
-const path = require('path');
+import express from 'express';
+import https from 'node:https';
+import http from 'node:http';
+import fs from 'node:fs';
 
 // *** Constants *** //
 const app = express();
 const PORT = 8080;
 
 // SSL files
-const certPath = path.join(__dirname, 'ssl', 'server.cert');
-const keyPath = path.join(__dirname, 'ssl', 'server.key');
+const certPath = 'ssl/server.cer';
+const keyPath = 'ssl/server.key';
 
 // Serve static files from the 'public' directory
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
 
 // Check if SSL certificate and key exist
 if (fs.existsSync(certPath) && fs.existsSync(keyPath)) {
