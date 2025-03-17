@@ -1,38 +1,41 @@
-import 'dotenv/config';
-import process from 'node:process';
-
+import createError from 'http-errors';
 import express from 'express';
-import https from 'node:https';
-import http from 'node:http';
-import fs from 'node:fs';
+import path from 'path';
+import cookieParser from 'cookie-parser';
+import logger from 'morgan';
 
-// *** Constants *** //
-const PORT = process.env.PORT || 8080; // Default port is 8080
-const CERT = process.env.CERT;
-const KEY = process.env.KEY;
+import indexRouter from './routes/index.js';
+import usersRouter from './routes/users.js';
 
-const app = express();
+var app = express();
 
-// Serve static files from the 'public' directory
-app.use(express.static('public'));
+// view engine setup
+app.set('views', path.join('views'));
+app.set('view engine', 'hbs');
 
-// Check if SSL certificate and key exist
-if (fs.existsSync(CERT) && fs.existsSync(KEY)) {
-  // Create SSL Options object
-  const sslOptions = {
-    cert: fs.readFileSync(CERT),
-    key: fs.readFileSync(KEY),
-  };
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join('public')));
 
-  // Start HTTPS server
-  https.createServer(sslOptions, app).listen(PORT, () => {
-    console.log(`HTTPS Server running at https://localhost:${PORT}`);
-  });
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
 
-} else {
-  // Start HTTP server if no certificate is found
-  console.warn("Warning: server.key and server.cert not found. Place items in ssl folder to start as https")
-  http.createServer(app).listen(PORT, () => {
-    console.log(`HTTP Server running at http://localhost:${PORT}`);
-  });
-}
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  next(createError(404));
+});
+
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+});
+
+export default app;
