@@ -1,5 +1,5 @@
 const travel = (req, res, next) => {
-  res.render('index', { title: 'Travel Gateways' });
+  res.render('travel', { title: 'Travel Gateways' });
 };
 
 export default travel;
