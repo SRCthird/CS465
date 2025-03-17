@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import controller from '../controllers/index';
+import controller from '../controllers/travel';
 
 var router = Router();
 
