@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import controller from '../controllers/user';
+import controller from '../controllers/user.js';
 
 var router = Router();
 
