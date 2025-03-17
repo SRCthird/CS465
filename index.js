@@ -1,10 +1,10 @@
 import createError from 'http-errors';
 import express from 'express';
-import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 
 import indexRouter from './src/routes/index.js';
+import travelRouter from './src/routes/travel.js';
 import usersRouter from './src/routes/users.js';
 
 var app = express();
@@ -20,6 +20,7 @@ app.use(cookieParser());
 app.use(express.static('public'));
 
 app.use('/', indexRouter);
+app.use('/travel', travelRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
