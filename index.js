@@ -2,6 +2,7 @@ import createError from 'http-errors';
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
+import handlebars from 'hbs';
 
 import indexRouter from './src/routes/index.js';
 import travelRouter from './src/routes/travel.js';
@@ -11,6 +12,7 @@ var app = express();
 
 // view engine setup
 app.set('views', 'src/views');
+handlebars.registerPartials('src/views/partials')
 app.set('view engine', 'hbs');
 
 app.use(logger('dev'));
