@@ -1,4 +1,4 @@
-import contact from '../data/contact.json' with { type: 'json' };
+import contact from '../data/contacts.json' with { type: 'json' };
 
 const controller = (req, res, next) => {
   if (req.method === 'POST') {
