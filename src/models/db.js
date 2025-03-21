@@ -75,5 +75,9 @@ connect();
 
 // Import Mongoose schema
 import './trip.js';
+import './contact.js';
+import './meal.js';
+import './news.js';
+import './room.js';
 
 export default mongoose;
