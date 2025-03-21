@@ -8,6 +8,7 @@ import indexRouter from './src/routes/index.js';
 import travelRouter from './src/routes/travel.js';
 import roomRouter from './src/routes/rooms.js'; 
 import usersRouter from './src/routes/users.js';
+import newsRouter from './src/routes/news.js';
 
 var app = express();
 
@@ -29,6 +30,7 @@ app.use('/', indexRouter);
 app.use('/travel', travelRouter);
 app.use('/rooms', roomRouter);
 app.use('/users', usersRouter);
+app.use('/news', newsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
