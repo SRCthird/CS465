@@ -6,6 +6,7 @@ import handlebars from 'hbs';
 
 import indexRouter from './src/routes/index.js';
 import travelRouter from './src/routes/travel.js';
+import roomRouter from './src/routes/rooms.js'; 
 import usersRouter from './src/routes/users.js';
 
 var app = express();
@@ -23,6 +24,7 @@ app.use(express.static('public'));
 
 app.use('/', indexRouter);
 app.use('/travel', travelRouter);
+app.use('/rooms', roomRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
