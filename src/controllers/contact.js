@@ -7,7 +7,10 @@ const controller = (req, res, next) => {
     return res.redirect('/');
   }
   console.log(contact)
-  res.render('contact', { title: 'Contact - Travlr Getaways'});
+  res.render('contact', { 
+    title: 'Contact - Travlr Getaways',
+    active: 'contact'
+  });
 };
 
 export default controller;
