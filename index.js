@@ -14,6 +14,9 @@ var app = express();
 // view engine setup
 app.set('views', 'src/views');
 handlebars.registerPartials('src/views/partials')
+handlebars.registerHelper('eq', function (a, b) {
+  return a === b;
+});
 app.set('view engine', 'hbs');
 
 app.use(logger('dev'));
