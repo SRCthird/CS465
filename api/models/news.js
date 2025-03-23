@@ -3,6 +3,7 @@ import { Schema, model } from 'mongoose';
 const news = model(
   'news',
   Schema({
+    code: { type: String, required: true, index: true },
     title: { type: String, required: true, index: true },
     classification: { type: String, required: true },
     image: { type: String, required: true } ,

@@ -1,6 +1,6 @@
 import Mongoose from '../../controllers/db.js';
 import Contact from '../contact.js';
-import contacts from '../../data/contacts.json' with {type: 'json'};
+import contacts from '../../../src/data/contacts.json' with {type: 'json'};
 
 const seedDB = async () => {
   await Contact.deleteMany({});

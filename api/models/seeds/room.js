@@ -1,6 +1,6 @@
 import Mongoose from '../../controllers/db.js';
 import Room from '../room.js';
-import rooms from '../../data/rooms.json' with {type: 'json'};
+import rooms from '../../../src/data/rooms.json' with {type: 'json'};
 
 const seedDB = async () => {
   await Room.deleteMany({});

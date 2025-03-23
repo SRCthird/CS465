@@ -1,6 +1,6 @@
 import Mongoose from '../../controllers/db.js';
 import Meal from '../meal.js';
-import meals from '../../data/meals.json' with {type: 'json'};
+import meals from '../../../src/data/meals.json' with {type: 'json'};
 
 const seedDB = async () => {
   await Meal.deleteMany({});
