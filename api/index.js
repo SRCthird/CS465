@@ -12,7 +12,7 @@ api.use('/travel', travelRouter);
 api.use('/rooms', roomRouter);
 api.use('/news', newsRouter);
 api.use('/meals', mealsRouter);
-api.use('/contact', contactsRouter);
+api.use('/contacts', contactsRouter);
 
 export default api;
 
