@@ -1,4 +1,4 @@
-const travel = async (req, res, next) => {
+const controller = async (req, res, next) => {
 
   await fetch(
     `${req.protocol}://${req.get('host')}/api/travel`, {
@@ -21,4 +21,4 @@ const travel = async (req, res, next) => {
     });
 };
 
-export default travel;
+export default controller;
