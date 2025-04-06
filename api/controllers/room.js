@@ -14,7 +14,7 @@ export const getAll = async (req, res) => {
 
 export const getOne = async (req, res) => {
   try {
-    const rooms = await Room.findOne({'name': req.params.roomCode});
+    const rooms = await Room.findOne({'code': req.params.roomCode});
     if (!rooms) {
       return res.status(404).json({ error: 'No room by that code'});
     }

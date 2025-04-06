@@ -14,7 +14,7 @@ export const getAll = async (req, res) => {
 
 export const getOne = async (req, res) => {
   try {
-    const meals = await Meal.findOne({'name': req.params.mealCode});
+    const meals = await Meal.findOne({'code': req.params.mealCode});
     if (!meals) {
       return res.status(404).json({ error: 'No meal by that code'});
     }

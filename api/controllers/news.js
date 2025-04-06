@@ -14,7 +14,7 @@ export const getAll = async (req, res) => {
 
 export const getOne = async (req, res) => {
   try {
-    const news = await News.findOne({'name': req.params.newsCode});
+    const news = await News.findOne({'code': req.params.newsCode});
     if (!news) {
       return res.status(404).json({ error: 'No news by that code'});
     }

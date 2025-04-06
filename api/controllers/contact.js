@@ -14,7 +14,7 @@ export const getAll = async (req, res) => {
 
 export const getOne = async (req, res) => {
   try {
-    const contacts = await Contact.findOne({'name': req.params.contactCode});
+    const contacts = await Contact.findOne({'code': req.params.contactCode});
     if (!contacts) {
       return res.status(404).json({ error: 'No contact by that code'});
     }
