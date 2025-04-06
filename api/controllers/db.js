@@ -74,10 +74,10 @@ process.on('SIGTERM', () => {
 connect();
 
 // Import Mongoose schema
-import './trip.js';
-import './contact.js';
-import './meal.js';
-import './news.js';
-import './room.js';
+import '../models/trip.js';
+import '../models/contact.js';
+import '../models/meal.js';
+import '../models/news.js';
+import '../models/room.js';
 
 export default mongoose;

@@ -1,17 +1,20 @@
 [
   {
+    "code": "SFS00001",
     "name": "Fried Salmon Special",
     "category": "SeaFood Special",
     "image": "seafoods.jpg",
     "description": "I'm a product overview. Here you can write more information about your product. Buyers like to know ..."
   },
   {
+    "code": "SD00001",
     "name": "Choco Ice Cream Sandwich",
     "category": "Sumptuous Desserts",
     "image": "desserts.jpg",
     "description": "I'm a product overview. Here you can write more information about your product. Buyers like to know ..."
   },
   {
+    "code": "BUF00001",
     "name": "Mixed Buffet",
     "category": "Buffet",
     "image": "buffet.jpg",
