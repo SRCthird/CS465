@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TripCardComponent } from '../trip-card/trip-card.component';
 import { TripDataService } from '../services/trip-data.service';
+import { Router } from '@angular/router';
 import Trip from '../models/trips';
 
 @Component({
@@ -16,11 +17,14 @@ export class TripListingComponent {
   trips: Array<Trip> = [];
   message: string = "";
 
-  constructor(private tripDataService: TripDataService) {
+  constructor(
+    private tripDataService: TripDataService,
+    private router: Router
+  ) {
     console.log('trip-listing constructor');
   }
 
-  private getStuff(): void {
+  private getTrips(): void {
     this.tripDataService.getTrips()
       .subscribe({
         next: (value: any) => {
@@ -39,7 +43,11 @@ export class TripListingComponent {
       })
   }
 
+  public addTrip(): void {
+    this.router.navigate(['add-trip']);
+  }
+
   ngOnInit(): void {
-    this.getStuff();
+    this.getTrips();
   }
 }
