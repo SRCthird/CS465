@@ -9,10 +9,14 @@ import Trip from '../models/trips';
 })
 export class TripDataService {
   constructor(private http: HttpClient) { }
+  private url = 'https://localhost:8080/api/travel';
 
   getTrips(): Observable<Trip[]> {
-    const url = 'https://localhost:8080/api/travel';
 
-    return this.http.get<Trip[]>(url);
+    return this.http.get<Trip[]>(this.url);
+  }
+
+  addTrip(formData: Trip): Observable<Trip[]> {
+    return this.http.post<Trip[]>(this.url, formData);
   }
 }
