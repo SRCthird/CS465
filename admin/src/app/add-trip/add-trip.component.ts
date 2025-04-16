@@ -5,7 +5,7 @@ import { Router } from "@angular/router";
 import { TripDataService } from '../services/trip-data.service';
 
 @Component({
-  selector: "app- add - trip",
+  selector: "app-add-trip",
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './add-trip.component.html',
