@@ -5,6 +5,8 @@ import roomRouter from './routes/rooms.js';
 import newsRouter from './routes/news.js';
 import mealsRouter from './routes/meals.js';
 import contactsRouter from './routes/contacts.js';
+import loginRouter from './routes/login.js';
+import registerRouter from './routes/register.js';
 
 const api = express.Router();
 
@@ -20,5 +22,7 @@ api.use('/rooms', roomRouter);
 api.use('/news', newsRouter);
 api.use('/meals', mealsRouter);
 api.use('/contacts', contactsRouter);
+api.use('/login', loginRouter);
+api.use('/register', registerRouter);
 
 export default api;
